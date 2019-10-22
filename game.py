@@ -26,6 +26,6 @@ while player = False:
 
 
 
-#need to check all of our conditions after checking for a tie
-player = False 
-computer = choices[randint(0, 2)]
+   #need to check all of our conditions after checking for a tie
+   player = False 
+   computer = choices[randint(0, 2)]
