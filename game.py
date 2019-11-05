@@ -1,6 +1,8 @@
 # import random package so tat we can generate a random choice
 from random import randint
 
+
+
 #set up variables for players and AI lives
 player_lives = 5
 computer_lives = 5
@@ -14,6 +16,33 @@ computer = choices[randint(0,2)]
 
 # set up the game loop so that we don't have to restart all te time 
 player = False
+
+def winorlose(status):
+	print("called win or lose")
+	print("****************")
+
+	print("you", status, "!would you like to play again?")
+
+	choice = input("Y / N")
+	print(choice) 
+
+	if (choice is "N") or (choice is "n"):
+		print("you chose to quit")
+		exit()
+
+	elif (choice is "Y") or (choice is "y"):
+		# reset the game so that we can start all over again
+		global computer_lives
+		global player_lives
+		global player
+		global computer
+		global choices
+
+		player_lives = 5
+		computer_lives = 5 
+		player = False 
+		computer = choices[randint(0, 2)]
+
 
 while player is False:
 	#set player true
@@ -68,36 +97,38 @@ while player is False:
 
 	# handle all lives lost for player or AI
 	if player_lives is 0:
-		print("out of lives! you suck at this game. Would you like to play again?\n")
-		choice = input("Y / N")
-		print(choice) 
+		winorlose("lose")
+		# print("out of lives! you suck at this game. Would you like to play again?\n")
+		# choice = input("Y / N")
+		# print(choice) 
 
-		if (choice is "N") or (choice is "n"):
-			print("you chose to quit")
-			exit()
+		# if (choice is "N") or (choice is "n"):
+		# 	print("you chose to quit")
+		# 	exit()
 
-		elif (choice is "Y") or (choice is "y"):
-			# reset the game so that we can start all over again
-			player_lives = 5
-			computer_lives = 5 
-			player = False 
-			computer = choices[randint(0, 2)]
+		# elif (choice is "Y") or (choice is "y"):
+		# 	# reset the game so that we can start all over again
+		# 	player_lives = 5
+		# 	computer_lives = 5 
+		# 	player = False 
+		# 	computer = choices[randint(0, 2)]
 
 	elif computer_lives is 0:
-		print("out of lives! you suck at this game. Would you like to play again?\n")
-		choice = input("Y / N")
-		print(choice) 
+		winorlose("won")
+		# print("out of lives! you suck at this game. Would you like to play again?\n")
+		# choice = input("Y / N")
+		# print(choice) 
 
-		if (choice is "N") or (choice is "n"):
-			print("you chose to quit")
-			exit()
+		# if (choice is "N") or (choice is "n"):
+		# 	print("you chose to quit")
+		# 	exit()
 
-		elif (choice is "Y") or (choice is "y"):
-			# reset the game so that we can start all over again
-			player_lives = 5
-			computer_lives = 5 
-			player = False 
-			computer = choices[randint(0, 2)]
+		# elif (choice is "Y") or (choice is "y"):
+		# 	# reset the game so that we can start all over again
+		# 	player_lives = 5
+		# 	computer_lives = 5 
+		# 	player = False 
+		# 	computer = choices[randint(0, 2)]
 
 
 	
